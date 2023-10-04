@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cylian LORAND</title>
+    <style>
+        body {
+            background-color: #373E2E;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: "Lemon Milk Bold", sans-serif;
+            overflow: hidden;
+            opacity: 0; /* Définir l'opacité initiale à 0 pour masquer les éléments */
+            transition: opacity 2s ease-in-out; /* Animation de fondu avec une durée de 2 secondes */
+            cursor: crosshair; /* Définir le curseur comme une croix personnalisée */
+        }
+        
+        h1, h2 {
+            color: #F2F2ED;
+            font-family: "Lemon Milk Bold", sans-serif;
+            margin: 0;
+            margin-top: 5px;
+            user-select: none; /* Empêche la sélection du texte */
+        }
+        
+        h2 {
+            font-size: 36px;
+        }
+        
+        .arrow-container {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .arrow-down {
+            font-size: 24px;
+            color: #F2F2ED;
+            animation: bounce 2s infinite;
+            cursor: pointer; /* Curseur indiquant que la flèche est cliquable */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lemon+Milk&display=swap">
+</head>
+<body>
+    <h1>Cylian</h1>
+    <h2>LORAND</h2>
+    <div class="arrow-container">
+        <div class="arrow-down" id="arrow">&#9660;</div>
+    </div>
+    
+    <script>
+        // Fonction pour faire apparaître les éléments avec un effet de fondu
+        window.addEventListener("load", function() {
+            const body = document.body;
+            body.style.opacity = "1"; // Rétablir l'opacité à 1 pour afficher les éléments avec un effet de fondu
+        });
+
+        // Rediriger vers YouTube.com avec un effet de fade out
+        const arrow = document.getElementById("arrow");
+        arrow.addEventListener("click", function() {
+            // Réduire l'opacité à 0 pour effectuer un effet de fade out
+            const body = document.body;
+            body.style.opacity = "0";
+
+            // Après un délai de 3 secondes (3000 millisecondes), rediriger vers YouTube.com
+            setTimeout(function() {
+                window.location.href = "https://www.youtube.com";
+            }, 3000);
+        });
+
+        // Annuler l'action de défilement par défaut
+        window.addEventListener("scroll", function(e) {
+            e.preventDefault();
+        });
+
+        // Rediriger vers YouTube.com lorsque l'utilisateur fait défiler vers le haut
+        let scrollPosition = window.scrollY;
+        window.addEventListener("scroll", function() {
+            const newScrollPosition = window.scrollY;
+            if (newScrollPosition < scrollPosition) {
+                // L'utilisateur fait défiler vers le haut
+                window.location.href = "https://www.youtube.com";
+            }
+            scrollPosition = newScrollPosition;
+        });
+    </script>
+</body>
+</html>
