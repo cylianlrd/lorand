@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cylian LORAND</title>
+    <style>
+        /* Style global pour la police (Lemon Milk Bold) */
+        body, .button-container, .shadow__btn, .cta, .hover-underline-animation {
+            font-family: 'Lemon Milk Bold', sans-serif;
+        }
+
+        /* Le style CSS que vous avez fourni ici */
+        body {
+            background-color: #373E2E; /* Couleur d'arrière-plan */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrer horizontalement */
+            justify-content: center; /* Centrer verticalement */
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Style des boutons */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .shadow__btn {
+            padding: 10px 20px;
+            border: none;
+            font-size: 17px;
+            color: #fff;
+            border-radius: 7px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.5s;
+            transition-property: box-shadow;
+            background: #373E2E; /* Couleur d'arrière-plan */
+            box-shadow: 0 0 25px rgba(7, 7, 7, 0.7); /* Vert foncé pour l'ombre */
+            margin: 10px;
+            cursor: pointer;
+            text-decoration: none; /* Enlève le soulignement */
+        }
+
+        .shadow__btn:hover {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.7),
+                        0 0 25px rgba(7, 32, 7, 0.7),
+                        0 0 50px rgba(18, 23, 18, 0.7),
+                        0 0 100px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Style du bouton CTA */
+        .cta {
+            border: none;
+            background: none;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none; /* Enlève le soulignement */
+        }
+
+        .cta span {
+            padding-bottom: 7px;
+            letter-spacing: 4px;
+            font-size: 14px;
+            padding-right: 15px;
+            text-transform: uppercase;
+        }
+
+        .cta svg {
+            transform: translateX(-8px);
+            transition: all 0.3s ease;
+        }
+
+        .cta:hover svg {
+            transform: translateX(0);
+        }
+
+        .cta:active svg {
+            transform: scale(0.9);
+        }
+
+        .hover-underline-animation {
+            position: relative;
+            color: black;
+            padding-bottom: 20px;
+        }
+
+        .hover-underline-animation:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #000000;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .cta:hover .hover-underline-animation:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <div class="button-row">
+            <a href="https://www.youtube.com/channel/UCqs4dmBXUdpKCzg-4wduTZA" class="shadow__btn">YouTube</a>
+            <a href="https://github.com/cylianlrd" class="shadow__btn">GitHub</a>
+        </div>
+        <div class="button-row">
+            <a href="https://www.roblox.com/users/5037745252/profile" class="shadow__btn" style="text-decoration: none;">Roblox</a>
+            <a href="https://twitter.com/cylian_lorand" class="shadow__btn" style="text-decoration: none;">Twitter</a>
+        </div>
+    </div>
+
+    <a href="https://www.youtube.com" class="cta">
+        <span class="hover-underline-animation">go back</span>
+    </a>
+</body>
+</html>
