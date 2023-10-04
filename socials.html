@@ -112,22 +112,56 @@
             transform: scaleX(1);
             transform-origin: bottom left;
         }
+
+        /* Ajout de la transition d'opacité pour les éléments */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <div class="button-row">
-            <a href="https://www.youtube.com/channel/UCqs4dmBXUdpKCzg-4wduTZA" class="shadow__btn">YouTube</a>
-            <a href="https://github.com/cylianlrd" class="shadow__btn">GitHub</a>
+    <!-- Ajoutez la classe "fade-in" pour chaque élément que vous souhaitez animer -->
+    <div class="button-container fade-in">
+        <div class="button-row fade-in">
+            <a href="https://www.youtube.com/channel/UCqs4dmBXUdpKCzg-4wduTZA" class="shadow__btn fade-in">YouTube</a>
+            <a href="https://github.com/cylianlrd" class="shadow__btn fade-in">GitHub</a>
         </div>
-        <div class="button-row">
-            <a href="https://www.roblox.com/users/5037745252/profile" class="shadow__btn" style="text-decoration: none;">Roblox</a>
-            <a href="https://twitter.com/cylian_lorand" class="shadow__btn" style="text-decoration: none;">Twitter</a>
+        <div class="button-row fade-in">
+            <a href="https://www.roblox.com/users/5037745252/profile" class="shadow__btn fade-in" style="text-decoration: none;">Roblox</a>
+            <a href="https://twitter.com/cylian_lorand" class="shadow__btn fade-in" style="text-decoration: none;">Twitter</a>
         </div>
     </div>
 
-    <a href="https://www.youtube.com" class="cta">
-        <span class="hover-underline-animation">go back</span>
+    <a href="#" class="cta fade-in" id="goBackButton">
+        <span class="hover-underline-animation fade-in">go back</span>
     </a>
+
+    <!-- Utilisez JavaScript pour ajouter la classe "fade-in" après le chargement de la page -->
+    <script>
+        window.addEventListener('load', function() {
+            var elementsToFadeIn = document.querySelectorAll('.fade-in');
+            elementsToFadeIn.forEach(function(element) {
+                element.style.opacity = 1;
+            });
+
+            // Ajouter un gestionnaire d'événements pour le bouton "go back"
+            var goBackButton = document.getElementById('goBackButton');
+            goBackButton.addEventListener('click', function(e) {
+                e.preventDefault(); // Empêche la redirection par défaut
+                fadeOutAndRedirect();
+            });
+
+            // Fonction pour effectuer le fade-out et la redirection après 3 secondes
+            function fadeOutAndRedirect() {
+                elementsToFadeIn.forEach(function(element) {
+                    element.style.opacity = 0;
+                });
+                setTimeout(function() {
+                    window.location.href = "https://cylianlrd.github.io/lorand/"; // Redirige vers la page YouTube
+                }, 3000); // Attendez 3 secondes avant de rediriger
+            }
+        });
+    </script>
 </body>
 </html>
