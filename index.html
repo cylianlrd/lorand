@@ -1,105 +1,58 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cylian LORAND</title>
+    <title>Fond de couleur avec bouton</title>
     <style>
-        body {
-            background-color: #373E2E;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-family: "Lemon Milk Bold", sans-serif;
-            overflow: hidden;
-            opacity: 0; /* Définir l'opacité initiale à 0 pour masquer les éléments */
-            transition: opacity 2s ease-in-out; /* Animation de fondu avec une durée de 2 secondes */
-            cursor: crosshair; /* Définir le curseur comme une croix personnalisée */
+        .btn {
+            position: relative;
+            font-size: 17px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 1em 2.5em;
+            display: inline-block;
+            border-radius: 6em;
+            transition: all .2s;
+            border: none;
+            font-family: inherit;
+            font-weight: 500;
+            color: black;
+            background-color: white;
         }
-        
-        h1, h2 {
-            color: #F2F2ED;
-            font-family: "Lemon Milk Bold", sans-serif;
-            margin: 0;
-            margin-top: 5px;
-            user-select: none; /* Empêche la sélection du texte */
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
-        h2 {
-            font-size: 36px;
+
+        .btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
-        
-        .arrow-container {
-            position: absolute;
-            bottom: 0;
-            text-align: center;
+
+        .btn::after {
+            content: "";
+            display: inline-block;
+            height: 100%;
             width: 100%;
+            border-radius: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all .4s;
         }
 
-        .arrow-down {
-            font-size: 24px;
-            color: #F2F2ED;
-            animation: bounce 2s infinite;
-            cursor: pointer; /* Curseur indiquant que la flèche est cliquable */
+        .btn::after {
+            background-color: #fff;
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+        .btn:hover::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
         }
     </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lemon+Milk&display=swap">
 </head>
-<body>
-    <h1>Cylian</h1>
-    <h2>LORAND</h2>
-    <div class="arrow-container">
-        <div class="arrow-down" id="arrow">&#9660;</div>
-    </div>
-    
-    <script>
-        // Fonction pour faire apparaître les éléments avec un effet de fondu
-        window.addEventListener("load", function() {
-            const body = document.body;
-            body.style.opacity = "1"; // Rétablir l'opacité à 1 pour afficher les éléments avec un effet de fondu
-        });
-
-        // Rediriger vers YouTube.com avec un effet de fade out
-        const arrow = document.getElementById("arrow");
-        arrow.addEventListener("click", function() {
-            // Réduire l'opacité à 0 pour effectuer un effet de fade out
-            const body = document.body;
-            body.style.opacity = "0";
-
-            // Après un délai de 3 secondes (3000 millisecondes), rediriger vers YouTube.com
-            setTimeout(function() {
-                window.location.href = "https://cylianlrd.github.io/lorand/socials";
-            }, 3000);
-        });
-
-        // Annuler l'action de défilement par défaut
-        window.addEventListener("scroll", function(e) {
-            e.preventDefault();
-        });
-
-        // Rediriger vers YouTube.com lorsque l'utilisateur fait défiler vers le haut
-        let scrollPosition = window.scrollY;
-        window.addEventListener("scroll", function() {
-            const newScrollPosition = window.scrollY;
-            if (newScrollPosition < scrollPosition) {
-                // L'utilisateur fait défiler vers le haut
-                window.location.href = "https://cylianlrd.github.io/lorand/socials";
-            }
-            scrollPosition = newScrollPosition;
-        });
-    </script>
+<body style="background-color: #161D18;">
+    <button class="btn">Mon bouton</button>
 </body>
 </html>
