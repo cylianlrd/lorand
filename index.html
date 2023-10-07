@@ -4,7 +4,7 @@
     <title>Cylian LORAND</title>
     <style>
         body {
-            background-image: url('unsplash.jpg'); /* Remplacez 'unsplash.jpg' par le chemin de votre image */
+            background-image: url('unsplash.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -13,8 +13,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            opacity: 0; /* Définit l'opacité initiale à 0 */
-            animation: fadeIn 2s ease-in-out forwards; /* Animation de fondu */
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            cursor: crosshair; /* Curseur en forme de croix */
+            user-select: none; /* Désactiver la sélection de texte */
+            -webkit-user-select: none; /* Pour les navigateurs WebKit */
+            /* Ajoutez l'effet de lueur autour de tous les éléments */
+            overflow: hidden; /* Désactive le défilement */
         }
 
         #bottone5 {
@@ -24,33 +29,31 @@
             border-radius: .25rem;
             box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
             box-sizing: border-box;
-            color: rgba(0, 153, 69, 0.158);
+            color: rgba(53, 69, 58, 065);
             cursor: pointer;
             display: inline-flex;
             font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 12px; /* Taille de police personnalisée, plus petite */
+            font-size: 12px;
             font-weight: 600;
             justify-content: center;
             line-height: 1.25;
-            min-height: 2rem; /* Réduit la hauteur du bouton */
-            padding: calc(.25rem - 1px) calc(.5rem - 1px); /* Réduit le padding du bouton */
+            min-height: 2rem;
+            padding: calc(.25rem - 1px) calc(.5rem - 1px);
             text-decoration: none;
             transition: all 250ms;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
+            -webkit-touch-callout: none; /* Désactiver la fenêtre contextuelle du lien sur iOS */
             vertical-align: baseline;
             width: auto;
-            margin-top: 5px; /* Réduit la marge supérieure entre le texte et le bouton */
-            opacity: 0; /* Définit l'opacité initiale à 0 */
-            animation: fadeIn 2s ease-in-out forwards; /* Animation de fondu */
+            margin-top: 5px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
         }
 
         #bottone5:hover,
         #bottone5:focus {
             border-color: rgba(0, 0, 0, 0.15);
-            box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px; /* Réduit l'ombre du bouton */
-            color:        c
+            box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+            color: rgba(53, 69, 58, 0.65);
         }
 
         #bottone5:hover {
@@ -60,21 +63,20 @@
         #bottone5:active {
             background-color: #080808;
             border-color: rgba(0, 0, 0, 0.15);
-            box-shadow: rgba(0, 0, 0, 0.06) 0 0 0; /* Désactive l'ombre lorsqu'il est cliqué */
-            color: rgba(152, 74, 74, 0.65);
+            box-shadow: rgba(0, 0, 0, 0.06) 0 0 0;
+            color: rgba(32, 41, 31, 0.65);
             transform: translateY(0);
         }
 
         h1 {
             font-family: "Lemon Milk Bold", sans-serif;
-            font-size: 30px; /* Taille de police personnalisée, légèrement agrandie */
+            font-size: 30px;
             font-weight: bold;
-            margin-bottom: 5px; /* Réduit la marge inférieure du texte */
-            opacity: 0; /* Définit l'opacité initiale à 0 */
-            animation: fadeIn 2s ease-in-out forwards; /* Animation de fondu */
+            margin-bottom: 5px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
         }
 
-        /* Animation de fondu */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -87,6 +89,20 @@
 </head>
 <body>
     <h1>Cylian LORAND</h1>
-    <button id="bottone5">Mon Bouton</button>
+    <!-- Ajoutez un lien hypertexte autour du bouton -->
+    <a href="https://www.youtube.com" id="bottone5">More</a>
+    <script>
+        // Fonction pour gérer le défilement
+        function handleScroll(event) {
+            // Vérifier si l'utilisateur fait défiler vers le haut
+            if (event.deltaY < 0) {
+                // Rediriger vers YouTube.com
+                window.location.href = "https://www.youtube.com";
+            }
+        }
+
+        // Ajouter un écouteur d'événements pour le défilement de la souris
+        window.addEventListener("wheel", handleScroll);
+    </script>
 </body>
 </html>
